@@ -294,7 +294,7 @@ function bindOku(){
 }
 function bindGirl(){
   const g=document.getElementById("giveOm");if(g)g.onclick=()=>{S.akari=1;save();document.getElementById("girl").innerHTML=girlBody();bindGirl()};
-  const h=document.getElementById("goHome");if(h)h.onclick=()=>{setStage(4);location.hash="#kaerimichi"};
+  const h=document.getElementById("goHome");if(h)h.onclick=()=>{if(S.stage===9){S.stage=3;S.last=0}setStage(4);if(location.hash==="#kaerimichi")route();else location.hash="#kaerimichi"};
 }
 window.addEventListener("online",refreshOku);window.addEventListener("offline",refreshOku);
 function refreshOku(){if(location.hash==="#okunomiya"&&S.stage<9){const o=document.getElementById("oku");if(o){o.innerHTML=okuBody();bindOku()}}}
